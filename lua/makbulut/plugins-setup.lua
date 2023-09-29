@@ -38,6 +38,8 @@ return packer.startup(function(use)
   use("tpope/vim-surround")
   use("vim-scripts/ReplaceWithRegister")
 
+  -- commenting with gc
+  use("numToStr/Comment.nvim")
 
 
   if packer_bootstrap then
