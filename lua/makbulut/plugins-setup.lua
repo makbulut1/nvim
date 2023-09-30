@@ -27,6 +27,9 @@ end
 return packer.startup(function(use)
   use("wbthomason/packer.nvim")
 
+  -- lua functions that may plugins use
+  use("nvim-lua/plenary.nvim")
+
   use("bluz71/vim-nightfly-guicolors") -- prefereed colorscheme
 
   -- tmux & split window navigation
@@ -41,6 +44,8 @@ return packer.startup(function(use)
   -- commenting with gc
   use("numToStr/Comment.nvim")
 
+  -- file explorer
+  use("nvim-tree/nvim-tree.lua")
 
   if packer_bootstrap then
     require("packer").sync()
