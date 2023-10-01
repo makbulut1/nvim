@@ -31,8 +31,7 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim")
 
   use("bluz71/vim-nightfly-guicolors") -- prefereed colorscheme
-
-  -- tmux & split window navigation
+-- tmux & split window navigation
   use("christoomey/vim-tmux-navigator")
 
   use("szw/vim-maximizer") -- maximizes and restores current window
@@ -52,6 +51,10 @@ return packer.startup(function(use)
 
   -- statusline
   use("nvim-lualine/lualine.nvim")
+
+  -- fuzzy finding
+  use({"nvim-telescope/telescope-fzf-native.nvim", run = "make"})
+  use({"nvim-telescope/telescope.nvim", branch = "0.1.x"})
 
   if packer_bootstrap then
     require("packer").sync()
