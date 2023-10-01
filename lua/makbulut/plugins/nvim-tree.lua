@@ -7,6 +7,8 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF]])
+
 nvimtree.setup({
   renderer = {
     icons = {
@@ -15,6 +17,13 @@ nvimtree.setup({
           arrow_closed = ">", -- arrow when folder is closed
           arrow_open = "⬇️" -- arrow when folder ıs open
         },
+      },
+    },
+  },
+  actions = {
+    open_file = {
+      window_picker = {
+        enable = false,
       },
     },
   },
