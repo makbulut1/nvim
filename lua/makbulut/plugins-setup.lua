@@ -73,6 +73,8 @@ return packer.startup(function(use)
   -- configuring lsp servers
   use("neovim/nvim-lspconfig")
 
+  -- 42 Header
+  use("Diogo-ss/42-header.nvim")
 
   if packer_bootstrap then
     require("packer").sync()
