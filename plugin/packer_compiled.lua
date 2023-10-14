@@ -5,6 +5,44 @@ if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then
   return
 end
 
+-- Activate vim syntax coloring
+vim.cmd('syntax on')
+
+-- Set line numbers as visible
+vim.wo.number = true
+
+-- Set row numbers as visible
+vim.wo.relativenumber = true
+
+-- Allow cursor movement by clicking
+vim.o.mouse = 'a'
+
+-- Tab tuşuna basıldığında 4 boşluk ekleyin
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
+-- Tab karakterini tek bir karakter olarak algılayın
+vim.cmd('set listchars=tab:▸\\ ')
+
+-- Auto-indent
+vim.o.autoindent = true
+
+-- Smart indent
+vim.o.smartindent = true
+
+-- Wrap lines
+vim.wo.wrap = true
+
+-- Copy and paste to system clipboard
+vim.api.nvim_set_keymap('x', '<Leader>y', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', '<Leader>d', '"+d', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>p', '"+p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>P', '"+P', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', '<Leader>p', '"+p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', '<Leader>P', '"+P', { noremap = true, silent = true })
+
 vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
@@ -74,6 +112,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["42-header.nvim"] = {
+    loaded = true,
+    path = "/Users/makbulut/.local/share/nvim/site/pack/packer/start/42-header.nvim",
+    url = "https://github.com/Diogo-ss/42-header.nvim"
+  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/Users/makbulut/.local/share/nvim/site/pack/packer/start/Comment.nvim",
