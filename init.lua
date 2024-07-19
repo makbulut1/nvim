@@ -9,3 +9,7 @@ require("makbulut.plugins.lualine")
 require("makbulut.plugins.telescope")
 require("makbulut.plugins.nvim-cmp")
 require("makbulut.plugins.lsp.mason")
+require("makbulut.plugins.copilot")
+require("makbulut.plugins.formatter")
+-- require("makbulut.plugins.plugins.terraform")
+

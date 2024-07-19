@@ -5,44 +5,6 @@ if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then
   return
 end
 
--- Activate vim syntax coloring
-vim.cmd('syntax on')
-
--- Set line numbers as visible
-vim.wo.number = true
-
--- Set row numbers as visible
-vim.wo.relativenumber = true
-
--- Allow cursor movement by clicking
-vim.o.mouse = 'a'
-
--- Tab tuşuna basıldığında 4 boşluk ekleyin
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-
--- Tab karakterini tek bir karakter olarak algılayın
-vim.cmd('set listchars=tab:▸\\ ')
-
--- Auto-indent
-vim.o.autoindent = true
-
--- Smart indent
-vim.o.smartindent = true
-
--- Wrap lines
-vim.wo.wrap = true
-
--- Copy and paste to system clipboard
-vim.api.nvim_set_keymap('x', '<Leader>y', '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('x', '<Leader>d', '"+d', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>p', '"+p', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>P', '"+P', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('x', '<Leader>p', '"+p', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('x', '<Leader>P', '"+P', { noremap = true, silent = true })
-
 vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
@@ -87,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/makbulut/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/makbulut/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/makbulut/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/makbulut/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/makbulut/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/makbulut/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/Users/makbulut/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/Users/makbulut/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/Users/makbulut/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/makbulut/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -146,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/makbulut/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["copilot.lua"] = {
+    loaded = true,
+    path = "/Users/makbulut/.local/share/nvim/site/pack/packer/start/copilot.lua",
+    url = "https://github.com/zbirenbaum/copilot.lua"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -207,6 +174,11 @@ _G.packer_plugins = {
     path = "/Users/makbulut/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["terraform-ls"] = {
+    loaded = true,
+    path = "/Users/makbulut/.local/share/nvim/site/pack/packer/start/terraform-ls",
+    url = "https://github.com/hashicorp/terraform-ls"
+  },
   ["vim-maximizer"] = {
     loaded = true,
     path = "/Users/makbulut/.local/share/nvim/site/pack/packer/start/vim-maximizer",
@@ -221,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/makbulut/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-terraform"] = {
+    loaded = true,
+    path = "/Users/makbulut/.local/share/nvim/site/pack/packer/start/vim-terraform",
+    url = "https://github.com/hashivim/vim-terraform"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,

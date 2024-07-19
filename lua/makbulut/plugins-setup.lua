@@ -76,6 +76,16 @@ return packer.startup(function(use)
   -- 42 Header
   use("Diogo-ss/42-header.nvim")
 
+  -- terraform
+  use("hashivim/vim-terraform")
+  use("hashicorp/terraform-ls")
+
+  -- copilot
+  use("zbirenbaum/copilot.lua")
+  
+  -- go formatter
+  use('mhartington/formatter.nvim')
+
   if packer_bootstrap then
     require("packer").sync()
   end
