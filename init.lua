@@ -11,5 +11,5 @@ require("makbulut.plugins.nvim-cmp")
 require("makbulut.plugins.lsp.mason")
 require("makbulut.plugins.copilot")
 require("makbulut.plugins.formatter")
--- require("makbulut.plugins.plugins.terraform")
+require("makbulut.plugins.lsp.terraform-ls")
 

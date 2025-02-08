@@ -1,53 +1,46 @@
-local status_ok, formatter = pcall(require, "formatter.util")
+-- formatter.util modülünü yükleme
+local status_ok, formatter = pcall(require, "formatter")
 if not status_ok then
   return
 end
 
-
-
-formatter.setup {
-  -- Enable or disable logging
+formatter.setup({
+  -- Logging ayarları
   logging = true,
-  -- Set the log level
   log_level = vim.log.levels.WARN,
-  -- All formatter configurations are opt-in
+
+  -- Formatter ayarlarını dosya türlerine göre yapıyoruz
   filetype = {
-    -- Formatter configurations for filetype "lua" go here
-    -- and will be executed in order
+    -- Lua dosya türü için formatter ayarları
     lua = {
-      -- "formatter.filetypes.lua" defines default configurations for the
-      -- "lua" filetype
+      -- "formatter.filetypes.lua" modülünü kullanarak stil ayarlarını yapıyoruz
       require("formatter.filetypes.lua").stylua,
 
-      -- You can also define your own configuration
+      -- Alternatif olarak, kendi formatter fonksiyonumuzu tanımlayabiliriz
       function()
-        -- Supports conditional formatting
-        if util.get_current_buffer_file_name() == "special.lua" then
+        -- Koşullu biçimlendirme: 'special.lua' dosyasında biçimlendirme yapılmasın
+        if vim.fn.expand('%:t') == "special.lua" then
           return nil
         end
 
-        -- Full specification of configurations is down below and in Vim help
-        -- files
+        -- stylua için tam yapılandırma
         return {
-          exe = "stylua",
+          exe = "stylua",  -- çalıştırılacak komut
           args = {
-            "--search-parent-directories",
-            "--stdin-filepath",
-            util.escape_path(util.get_current_buffer_file_path()),
-            "--",
-            "-",
+            "--search-parent-directories",  -- üst dizinleri ara
+            "--stdin-filepath", vim.fn.fnameescape(vim.fn.expand("%:p")),  -- dosya yolunu kaçır
+            "--", "-",
           },
-          stdin = true,
+          stdin = true,  -- stdin üzerinden veri al
         }
       end
     },
 
-    -- Use the special "*" filetype for defining formatter configurations on
-    -- any filetype
+    -- Genel dosya türleri için formatter ayarları
     ["*"] = {
-      -- "formatter.filetypes.any" defines default configurations for any
-      -- filetype
-      require("formatter.filetypes.any").remove_trailing_whitespace
+      -- Whitespace temizleme işlemi
+      require("formatter.filetypes.any").remove_trailing_whitespace,
     }
   }
-}
+})
+
