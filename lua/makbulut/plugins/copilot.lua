@@ -1,49 +1,61 @@
+
 local status_ok, copilot = pcall(require, "copilot")
 if not status_ok then
   return
 end
 
-
 copilot.setup({
+  -- PANEL AYARLARI (Ayrı pencere: :Copilot panel)
   panel = {
     enabled = true,
     auto_refresh = false,
     keymap = {
-      jump_prev = "<C-p>",   -- Ctrl + p
-      jump_next = "<C-n>",   -- Ctrl + n
-      accept = "<C-Space>",  -- Ctrl + Space
-      refresh = "<C-r>",     -- Ctrl + r
-      open = "<C-o>"         -- Ctrl + o (Paneli açmak için, isteğe bağlı bir kısayol)
+      jump_prev = "[[",     -- Panelin içindeyken önceki öneri
+      jump_next = "]]",     -- Panelin içindeyken sonraki öneri
+      accept = "<CR>",      -- Enter ile kabul et
+      refresh = "gr",       -- Listeyi yenile
+      open = "<C-o>"       -- Control + o (Paneli açmak için)
     },
     layout = {
-      position = "bottom", -- | top | left | right
+      position = "bottom",
       ratio = 0.4
     },
   },
+
+  -- SUGGESTION AYARLARI (Kod yazarken çıkan gri hayalet metin)
   suggestion = {
     enabled = true,
     auto_trigger = true,
     debounce = 75,
     keymap = {
-      accept = "<Tab>",  -- Ctrl + Space
-      next = "<C-n>",        -- Ctrl + n
-      prev = "<C-p>",        -- Ctrl + p
-      dismiss = "<C-d>",     -- Ctrl + d (Öneriyi kapatmak için, isteğe bağlı bir kısayol)
+      -- MAC İÇİN EN UYGUN KISAYOLLAR
+      
+      -- Kabul Etme: Control + L 
+      -- (Neden? Sağ el yüzük parmağıyla kolay basılır, "Line" tamamla gibi düşünülebilir)
+      accept = "<C-l>", 
+      
+      -- Sonraki Öneri: Control + J
+      -- (Vim'de J aşağı gitmek demektir, burada sonraki öneriye geçer)
+      next = "<C-j>",
+      
+      -- Önceki Öneri: Control + K
+      -- (Vim'de K yukarı gitmek demektir, burada önceki öneriye döner)
+      prev = "<C-k>",
+      
+      -- Kapat / Reddet: Control + H
+      dismiss = "<C-h>",
     },
   },
+
+  -- DOSYA TİPLERİ (Temizlendi)
   filetypes = {
-    -- Etkinleştirmek istediğiniz diller
-    ["c"] = true,
-    ["cpp"] = true,
-    ["python"] = true,
-    ["dockerfile"] = true,
-    ["lua"] = true,
-    ["terraform"] = true,
-    ["javascript"] = true,
-    ["typescript"] = true,
-    -- Diğer dilleri varsayılan olarak devre dışı bırak
-    ["*"] = true,
+    ["*"] = true,        -- Tüm dosyalarda aktif
+    ["help"] = false,    -- Yardım dosyalarında kapalı
+    ["gitcommit"] = false, 
+    ["TelescopePrompt"] = false, -- Telescope arama çubuğunda çıkmasın
   },
-  copilot_node_command = 'node', -- Node.js version must be >= 18.x
+  
+  copilot_node_command = 'node', 
   server_opts_overrides = {},
 })
+
