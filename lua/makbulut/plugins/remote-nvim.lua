@@ -14,10 +14,5 @@ remote_nvim.setup({
     scp_binary = "scp",
     ssh_config_file_paths = { "$HOME/.ssh/config" },
   },
-  neovim_install_script_path = vim.fn.joinpath(
-    vim.fn.stdpath("data"),
-    "remote-nvim.nvim",
-    "scripts",
-    "neovim_install.sh"
-  ),
+  neovim_install_script_path = vim.fn.stdpath("data") .. "/remote-nvim.nvim/scripts/neovim_install.sh",
 })
