@@ -22,11 +22,13 @@ if registry_status then
   end
 end
 
+local servers = { "lua_ls", "terraformls" }
+
+if vim.fn.executable("go") == 1 then
+  table.insert(servers, "gopls")
+end
+
 mason_lspconfig.setup({
-  ensure_installed = {
-    "lua_ls",
-    "terraformls",
-    "gopls",
-  },
+  ensure_installed = servers,
   automatic_installation = true,
 })
