@@ -43,14 +43,20 @@ vim.lsp.config("terraformls", {
   capabilities = capabilities,
 })
 
-vim.lsp.config("gopls", {
-  capabilities = capabilities,
-  settings = {
-    gopls = {
-      analyses = { unusedparams = true },
-      staticcheck = true,
-    },
-  },
-})
+local servers = { "lua_ls", "terraformls" }
 
-vim.lsp.enable({ "lua_ls", "terraformls", "gopls" })
+-- Go kuruluysa gopls'i de etkinleştir
+if vim.fn.executable("go") == 1 then
+  vim.lsp.config("gopls", {
+    capabilities = capabilities,
+    settings = {
+      gopls = {
+        analyses = { unusedparams = true },
+        staticcheck = true,
+      },
+    },
+  })
+  table.insert(servers, "gopls")
+end
+
+vim.lsp.enable(servers)
