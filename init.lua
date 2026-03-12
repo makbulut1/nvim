@@ -16,4 +16,6 @@ require("makbulut.plugins.treesitter")
 require("makbulut.plugins.autopairs")
 require("makbulut.plugins.gitsigns")
 require("makbulut.plugins.toggleterm")
+require("makbulut.plugins.render-markdown")
+require("makbulut.plugins.markdown-preview")
 
