@@ -91,6 +91,11 @@ require("lazy").setup({
   -- formatter
   "mhartington/formatter.nvim",
 
+  -- avante
+  "MunifTanjim/nui.nvim",
+  "stevearc/dressing.nvim",
+  { "yetone/avante.nvim", build = "make" },
+
   -- markdown
   "MeanderingProgrammer/render-markdown.nvim",
   {

@@ -1,0 +1,38 @@
+local status, avante = pcall(require, "avante")
+if not status then
+  return
+end
+
+avante.setup({
+  provider = "claude",
+  claude = {
+    endpoint = "https://api.anthropic.com",
+    model = "claude-sonnet-4-6",
+    timeout = 30000,
+    temperature = 0,
+    max_tokens = 8096,
+  },
+  behaviour = {
+    auto_suggestions = false,
+    auto_set_highlight_group = true,
+    auto_set_keymaps = true,
+    auto_apply_diff_after_generation = false,
+    support_paste_from_clipboard = false,
+  },
+  mappings = {
+    ask = "<leader>aa",
+    edit = "<leader>ae",
+    refresh = "<leader>ar",
+    toggle = {
+      default = "<leader>at",
+      debug = "<leader>ad",
+      hint = "<leader>ah",
+    },
+  },
+  hints = { enabled = true },
+  windows = {
+    position = "right",
+    wrap = true,
+    width = 30,
+  },
+})
