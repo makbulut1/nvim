@@ -33,3 +33,10 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+
+-- scroll & performance
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.wrap = false
+opt.updatetime = 250
+opt.timeoutlen = 500

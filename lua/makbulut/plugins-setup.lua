@@ -72,6 +72,31 @@ return packer.startup(function(use)
 
   -- configuring lsp servers
   use("neovim/nvim-lspconfig")
+  use("hrsh7th/cmp-nvim-lsp") -- lsp completion source
+  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp ui
+  use("jose-elias-alvarez/typescript.nvim") -- typescript extras
+  use("onsails/lspkind.nvim") -- completion icons
+
+  -- treesitter
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+      require("nvim-treesitter.install").update({ with_sync = true })
+    end,
+  })
+
+  -- auto closing
+  use("windwp/nvim-autopairs")
+  use("windwp/nvim-ts-autotag") -- html tag auto close/rename
+
+  -- git integration
+  use("lewis6991/gitsigns.nvim")
+
+  -- which-key
+  use("folke/which-key.nvim")
+
+  -- terminal
+  use("akinsho/toggleterm.nvim")
 
   -- 42 Header
   use("Diogo-ss/42-header.nvim")
