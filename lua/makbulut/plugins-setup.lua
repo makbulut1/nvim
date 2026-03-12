@@ -111,6 +111,13 @@ return packer.startup(function(use)
   -- go formatter
   use('mhartington/formatter.nvim')
 
+  -- markdown
+  use("MeanderingProgrammer/render-markdown.nvim")
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
   if packer_bootstrap then
     require("packer").sync()
   end
