@@ -1,2 +1,0 @@
--- terraform-ls artık lspconfig.lua içinde yönetiliyor
--- Bu dosya geriye dönük uyumluluk için korunuyor
