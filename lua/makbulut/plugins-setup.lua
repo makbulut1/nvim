@@ -96,6 +96,16 @@ require("lazy").setup({
   "stevearc/dressing.nvim",
   { "yetone/avante.nvim", build = "make" },
 
+  -- ssh remote
+  {
+    "amitds1997/remote-nvim.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+
   -- markdown
   "MeanderingProgrammer/render-markdown.nvim",
   {
