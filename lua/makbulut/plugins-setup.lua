@@ -73,9 +73,6 @@ return packer.startup(function(use)
   -- configuring lsp servers
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp") -- lsp completion source
-  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp ui
-  use("jose-elias-alvarez/typescript.nvim") -- typescript extras
-  use("onsails/lspkind.nvim") -- completion icons
 
   -- treesitter
   use({
@@ -103,7 +100,6 @@ return packer.startup(function(use)
 
   -- terraform
   use("hashivim/vim-terraform")
-  use("hashicorp/terraform-ls")
 
   -- copilot
   use("zbirenbaum/copilot.lua")
