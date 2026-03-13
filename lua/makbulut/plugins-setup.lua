@@ -1,121 +1,101 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer() -- true if packer was just install
+require("lazy").setup({
 
--- Autocommand that reloads neovim whenever you save this file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+  -- lua functions
+  "nvim-lua/plenary.nvim",
 
-local status, packer = pcall(require, "packer")
-if not status then
-    return
-end
+  -- colorscheme
+  "bluz71/vim-nightfly-guicolors",
 
-return packer.startup(function(use)
-  use("wbthomason/packer.nvim")
+  -- tmux & split window navigation
+  "christoomey/vim-tmux-navigator",
 
-  -- lua functions that may plugins use
-  use("nvim-lua/plenary.nvim")
-
-  use("bluz71/vim-nightfly-guicolors") -- prefereed colorscheme
--- tmux & split window navigation
-  use("christoomey/vim-tmux-navigator")
-
-  use("szw/vim-maximizer") -- maximizes and restores current window
+  -- window maximizer
+  "szw/vim-maximizer",
 
   -- essential plugins
-  use("tpope/vim-surround")
-  use("vim-scripts/ReplaceWithRegister")
+  "tpope/vim-surround",
+  "vim-scripts/ReplaceWithRegister",
 
-  -- commenting with gc
-  use("numToStr/Comment.nvim")
+  -- commenting
+  "numToStr/Comment.nvim",
 
   -- file explorer
-  use("nvim-tree/nvim-tree.lua")
+  "nvim-tree/nvim-tree.lua",
 
   -- icons
-  use("kyazdani42/nvim-web-devicons")
+  "nvim-tree/nvim-web-devicons",
 
   -- statusline
-  use("nvim-lualine/lualine.nvim")
+  "nvim-lualine/lualine.nvim",
 
   -- autocompletion
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
 
   -- fuzzy finding
-  use({"nvim-telescope/telescope-fzf-native.nvim", run = "make"})
-  use({"nvim-telescope/telescope.nvim", branch = "0.1.x"})
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  { "nvim-telescope/telescope.nvim", branch = "0.1.x" },
 
   -- snippets
-  use("L3MON4D3/LuaSnip")
-  use("saadparwaiz1/cmp_luasnip")
-  use("rafamadriz/friendly-snippets")
+  "L3MON4D3/LuaSnip",
+  "saadparwaiz1/cmp_luasnip",
+  "rafamadriz/friendly-snippets",
 
-  -- managing & installing lsp servers
-  use("williamboman/mason.nvim")
-  use("williamboman/mason-lspconfig.nvim")
-
-  -- configuring lsp servers
-  use("neovim/nvim-lspconfig")
-  use("hrsh7th/cmp-nvim-lsp") -- lsp completion source
+  -- lsp
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "neovim/nvim-lspconfig",
+  "hrsh7th/cmp-nvim-lsp",
 
   -- treesitter
-  use({
+  {
     "nvim-treesitter/nvim-treesitter",
-    run = function()
-      require("nvim-treesitter.install").update({ with_sync = true })
-    end,
-  })
+    build = ":TSUpdate",
+  },
 
   -- auto closing
-  use("windwp/nvim-autopairs")
-  use("windwp/nvim-ts-autotag") -- html tag auto close/rename
+  "windwp/nvim-autopairs",
+  "windwp/nvim-ts-autotag",
 
-  -- git integration
-  use("lewis6991/gitsigns.nvim")
+  -- git
+  "lewis6991/gitsigns.nvim",
 
   -- which-key
-  use("folke/which-key.nvim")
+  "folke/which-key.nvim",
 
   -- terminal
-  use("akinsho/toggleterm.nvim")
+  "akinsho/toggleterm.nvim",
 
-  -- 42 Header
-  use("Diogo-ss/42-header.nvim")
+  -- 42 header
+  "Diogo-ss/42-header.nvim",
 
   -- terraform
-  use("hashivim/vim-terraform")
+  "hashivim/vim-terraform",
 
   -- copilot
-  use("zbirenbaum/copilot.lua")
-  
-  -- go formatter
-  use('mhartington/formatter.nvim')
+  "zbirenbaum/copilot.lua",
+
+  -- formatter
+  "mhartington/formatter.nvim",
 
   -- markdown
-  use("MeanderingProgrammer/render-markdown.nvim")
-  use({
+  "MeanderingProgrammer/render-markdown.nvim",
+  {
     "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
 
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end)
-
+})
