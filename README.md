@@ -9,6 +9,7 @@ Kişisel Neovim konfigürasyonu. Lua tabanlı, modern plugin ekosistemi ile geli
 - [Nerd Font](https://www.nerdfonts.com/) (ikonlar için)
 - [ripgrep](https://github.com/BurntSushi/ripgrep) (Telescope live grep için)
 - [Node.js](https://nodejs.org/) (Copilot için)
+- [Rust/Cargo](https://rustup.rs/) (avante.nvim build için)
 
 ### İsteğe Bağlı
 
@@ -20,6 +21,9 @@ Kişisel Neovim konfigürasyonu. Lua tabanlı, modern plugin ekosistemi ile geli
 ## Kurulum
 
 ```bash
+# Gereksinimler (macOS)
+brew install neovim git ripgrep lazygit rust node
+
 # Mevcut config varsa yedekle
 mv ~/.config/nvim ~/.config/nvim.bak
 
@@ -29,6 +33,8 @@ git clone https://github.com/makbulut1/nvim.git ~/.config/nvim
 # Neovim'i aç — lazy.nvim otomatik kurulacak
 nvim
 ```
+
+Neovim açılınca `:Lazy sync` ile tüm pluginler kurulur.
 
 ## Pluginler
 
@@ -48,6 +54,10 @@ nvim
 | [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) | Markdown render |
 | [which-key.nvim](https://github.com/folke/which-key.nvim) | Keybind yardımcısı |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Statusline |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git inline blame & hunk yönetimi |
+| [nvim-autopairs](https://github.com/windwp/nvim-autopairs) | Otomatik parantez/tırnak kapama |
+| [42-header.nvim](https://github.com/Diogo-ss/42-header.nvim) | 42 okul header |
+| [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) | Tarayıcıda markdown preview |
 
 ## Keybindings
 
@@ -84,6 +94,8 @@ nvim
 | Kısayol | Açıklama |
 |---|---|
 | `gd` | Tanıma git |
+| `Ctrl + o` | Geri dön (jump list) |
+| `Ctrl + i` | İleri git (jump list) |
 | `gD` | Bildirimine git |
 | `gi` | Implementasyona git |
 | `gr` | Referanslar |
