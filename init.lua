@@ -18,6 +18,7 @@ require("makbulut.plugins.gitsigns")
 require("makbulut.plugins.toggleterm")
 require("makbulut.plugins.which-key")
 require("makbulut.plugins.avante")
+require("makbulut.plugins.remote-nvim")
 require("makbulut.plugins.render-markdown")
 require("makbulut.plugins.markdown-preview")
 
