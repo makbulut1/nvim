@@ -40,3 +40,8 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
 -- 42 Header
 keymap.set("n", "<leader>hh", ":Stdheader<CR>")
+
+-- Yol kopyalama kısayolları
+keymap.set("n", "<leader>pa", [[:let @+ = expand("%:p")<CR>:echo "Tam yol kopyalandı"<CR>]], { desc = "Tam yolu kopyala" })
+keymap.set("n", "<leader>pr", [[:let @+ = expand("%")<CR>:echo "Göreceli yol kopyalandı"<CR>]], { desc = "Göreceli yolu kopyala" })
+keymap.set("n", "<leader>pn", [[:let @+ = expand("%:t")<CR>:echo "Dosya adı kopyalandı"<CR>]], { desc = "Dosya adını kopyala" })

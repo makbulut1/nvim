@@ -10,6 +10,7 @@ end
 
 telescope.setup({
   defaults = {
+    path_display = { "filename_first" },
     mappings = {
       i = {
         ["<C-k>"] = actions.move_selection_previous,
@@ -22,5 +23,5 @@ telescope.setup({
     },
   },
 })
---
--- telescope.load_extensions("fzf")
+
+telescope.load_extension("fzf")
