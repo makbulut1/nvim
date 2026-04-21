@@ -1,8 +1,9 @@
-require("makbulut.plugins.header")
+vim.g.mapleader = " "
 require("makbulut.plugins-setup")
 require("makbulut.core.options")
 require("makbulut.core.keymaps")
 require("makbulut.core.colorscheme")
+require("makbulut.plugins.header")
 require("makbulut.plugins.comment")
 require("makbulut.plugins.nvim-tree")
 require("makbulut.plugins.lualine")

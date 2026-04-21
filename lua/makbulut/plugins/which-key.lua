@@ -50,4 +50,8 @@ which_key.add({
   { "<leader>rn", desc = "Yeniden adlandır" },
   { "<leader>ca", desc = "Code action" },
   { "<leader>d", desc = "Diagnostic göster" },
+  { "<leader>p", group = "Yol (Kopyala)" },
+  { "<leader>pa", desc = "Tam yolu kopyala" },
+  { "<leader>pr", desc = "Göreceli yolu kopyala" },
+  { "<leader>pn", desc = "Dosya adını kopyala" },
 })
