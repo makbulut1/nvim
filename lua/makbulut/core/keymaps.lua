@@ -45,3 +45,25 @@ keymap.set("n", "<leader>hh", ":Stdheader<CR>")
 keymap.set("n", "<leader>pa", [[:let @+ = expand("%:p")<CR>:echo "Tam yol kopyalandı"<CR>]], { desc = "Tam yolu kopyala" })
 keymap.set("n", "<leader>pr", [[:let @+ = expand("%")<CR>:echo "Göreceli yol kopyalandı"<CR>]], { desc = "Göreceli yolu kopyala" })
 keymap.set("n", "<leader>pn", [[:let @+ = expand("%:t")<CR>:echo "Dosya adı kopyalandı"<CR>]], { desc = "Dosya adını kopyala" })
+
+-- macOS Tarzı Navigasyon (Option/Command + Ok Tuşları)
+-- Kelime atlama (Option + Sağ/Sol)
+keymap.set({ "n", "i" }, "<A-Left>", "<C-o>b", { desc = "Geriye bir kelime atla" })
+keymap.set({ "n", "i" }, "<A-Right>", "<C-o>w", { desc = "İleriye bir kelime atla" })
+
+-- macOS/Emacs Tarzı Navigasyon (Çoğu terminalde Command yerine Ctrl+A/E daha iyi çalışır)
+keymap.set({ "n", "i", "v" }, "<C-a>", "<C-o>^", { desc = "Satır başına git" })
+keymap.set({ "n", "i", "v" }, "<C-e>", "<C-o>$", { desc = "Satır sonuna git" })
+
+-- Kelime atlama (Option + Sağ/Sol)
+-- Hem <A-..> hem de manuel Esc sekanslarını ekleyerek terminal uyumluluğunu artırıyoruz
+keymap.set({ "n", "i", "v" }, "<A-Left>", "<C-o>b", { desc = "Geriye bir kelime atla" })
+keymap.set({ "n", "i", "v" }, "<A-Right>", "<C-o>w", { desc = "İleriye bir kelime atla" })
+
+-- Bazı terminaller için manuel Esc+b/f desteği
+keymap.set({ "n", "i", "v" }, "<Esc>b", "<C-o>b", { desc = "Geriye bir kelime atla" })
+keymap.set({ "n", "i", "v" }, "<Esc>f", "<C-o>w", { desc = "İleriye bir kelime atla" })
+
+-- Kelime silme (Option + Backspace)
+keymap.set("i", "<A-BS>", "<C-w>", { desc = "Bir kelime sil" })
+keymap.set("i", "<Esc><BS>", "<C-w>", { desc = "Bir kelime sil" })
