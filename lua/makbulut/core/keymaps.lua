@@ -67,3 +67,8 @@ keymap.set({ "n", "i", "v" }, "<Esc>f", "<C-o>w", { desc = "İleriye bir kelime 
 -- Kelime silme (Option + Backspace)
 keymap.set("i", "<A-BS>", "<C-w>", { desc = "Bir kelime sil" })
 keymap.set("i", "<Esc><BS>", "<C-w>", { desc = "Bir kelime sil" })
+
+-- Session Management (Oturum Yönetimi)
+keymap.set("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], { desc = "Bu dizindeki oturumu yükle" })
+keymap.set("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], { desc = "Son oturumu yükle" })
+keymap.set("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], { desc = "Oturumu kaydetmeyi durdur" })

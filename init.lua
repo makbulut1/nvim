@@ -22,4 +22,5 @@ require("makbulut.plugins.avante")
 require("makbulut.plugins.remote-nvim")
 require("makbulut.plugins.render-markdown")
 require("makbulut.plugins.markdown-preview")
+require("makbulut.plugins.persistence")
 

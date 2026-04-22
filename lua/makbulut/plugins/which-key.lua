@@ -54,4 +54,8 @@ which_key.add({
   { "<leader>pa", desc = "Tam yolu kopyala" },
   { "<leader>pr", desc = "Göreceli yolu kopyala" },
   { "<leader>pn", desc = "Dosya adını kopyala" },
+  { "<leader>q", group = "Oturum (Session)" },
+  { "<leader>qs", desc = "Bu dizindeki oturumu yükle" },
+  { "<leader>ql", desc = "Son oturumu yükle" },
+  { "<leader>qd", desc = "Oturumu kaydetmeyi durdur" },
 })

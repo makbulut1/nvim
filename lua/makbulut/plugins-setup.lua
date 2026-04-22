@@ -112,5 +112,7 @@ require("lazy").setup({
     "iamcco/markdown-preview.nvim",
     build = function() vim.fn["mkdp#util#install"]() end,
   },
+  -- session management
+  "folke/persistence.nvim",
 
 })
