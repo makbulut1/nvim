@@ -1,4 +1,8 @@
-local header = require("42header")
+local status, header = pcall(require, "42header")
+if not status then
+  return
+end
+
 header.setup({
   length = 80, -- headers of different sizes are incompatible with each other
   margin = 5,

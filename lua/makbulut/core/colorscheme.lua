@@ -12,4 +12,8 @@ vim.cmd [[
   highlight LineNr guibg=NONE ctermbg=NONE
   highlight Folded guibg=NONE ctermbg=NONE
   highlight EndOfBuffer guibg=NONE ctermbg=NONE
+  highlight TelescopeBorder guifg=#65D1FF
+  highlight TelescopePromptBorder guifg=#65D1FF
+  highlight TelescopeResultsTitle guifg=#65D1FF
+  highlight TelescopePromptTitle guifg=#65D1FF
 ]]
