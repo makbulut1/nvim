@@ -1,3 +1,11 @@
+-- Add homebrew paths to PATH
+local homebrew_paths = { "/opt/homebrew/bin", "/usr/local/bin" }
+for _, path in ipairs(homebrew_paths) do
+  if vim.fn.isdirectory(path) == 1 then
+    vim.env.PATH = path .. ":" .. vim.env.PATH
+  end
+end
+
 vim.g.mapleader = " "
 require("makbulut.plugins-setup")
 require("makbulut.core.options")
