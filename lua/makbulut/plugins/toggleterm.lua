@@ -14,7 +14,7 @@ toggleterm.setup({
 if vim.fn.executable("lazygit") == 1 then
   local Terminal = require("toggleterm.terminal").Terminal
   local lazygit = Terminal:new({
-    cmd = "lazygit",
+    cmd = "lazygit -ucf " .. vim.fn.stdpath("config") .. "/lazygit.yml",
     direction = "float",
     float_opts = { border = "curved" },
     hidden = true,
