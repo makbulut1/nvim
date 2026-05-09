@@ -14,10 +14,17 @@ toggleterm.setup({
 if vim.fn.executable("lazygit") == 1 then
   local Terminal = require("toggleterm.terminal").Terminal
   local lazygit = Terminal:new({
-    cmd = "lazygit",
+    cmd = "lazygit -ucf " .. vim.fn.stdpath("config") .. "/lazygit.yml",
     direction = "float",
     float_opts = { border = "curved" },
     hidden = true,
+    env = { EDITOR = "nvim" },
+    on_open = function(term)
+      vim.cmd("startinsert!")
+      -- Lazygit içinde <esc> tuşunun çalışabilmesi için terminal mapping'ini kaldırıyoruz
+      pcall(vim.api.nvim_buf_del_keymap, term.bufnr, "t", "<esc>")
+      pcall(vim.api.nvim_buf_del_keymap, term.bufnr, "t", "jk")
+    end,
   })
 
   vim.keymap.set("n", "<leader>lg", function() lazygit:toggle() end, { desc = "Lazygit" })
