@@ -2,3 +2,5 @@ keybinding:
   universal:
     edit: 'o'
     openFile: 'e'
+os:
+  editPreset: 'nvim'

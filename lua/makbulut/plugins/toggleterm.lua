@@ -18,6 +18,7 @@ if vim.fn.executable("lazygit") == 1 then
     direction = "float",
     float_opts = { border = "curved" },
     hidden = true,
+    env = { EDITOR = "nvim" },
     on_open = function(term)
       vim.cmd("startinsert!")
       -- Lazygit içinde <esc> tuşunun çalışabilmesi için terminal mapping'ini kaldırıyoruz
