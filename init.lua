@@ -7,28 +7,12 @@ for _, path in ipairs(homebrew_paths) do
 end
 
 vim.g.mapleader = " "
+
+-- Temel ayarlar ve keymap'ler her zaman yüklenir
 require("makbulut.plugins-setup")
 require("makbulut.core.options")
 require("makbulut.core.keymaps")
 require("makbulut.core.colorscheme")
-require("makbulut.plugins.header")
-require("makbulut.plugins.comment")
-require("makbulut.plugins.nvim-tree")
-require("makbulut.plugins.lualine")
-require("makbulut.plugins.telescope")
-require("makbulut.plugins.nvim-cmp")
-require("makbulut.plugins.lsp.mason")
-require("makbulut.plugins.lsp.lspconfig")
-require("makbulut.plugins.copilot")
-require("makbulut.plugins.formatter")
-require("makbulut.plugins.treesitter")
-require("makbulut.plugins.autopairs")
-require("makbulut.plugins.gitsigns")
-require("makbulut.plugins.toggleterm")
-require("makbulut.plugins.which-key")
-require("makbulut.plugins.avante")
-require("makbulut.plugins.remote-nvim")
-require("makbulut.plugins.render-markdown")
-require("makbulut.plugins.markdown-preview")
-require("makbulut.plugins.persistence")
 
+-- Diğer tüm plugin config'leri lazy.nvim'in config callback'leri üzerinden yükleniyor.
+-- plugins-setup.lua'ya bakın.

@@ -53,6 +53,7 @@ if vim.fn.executable("go") == 1 then
       gopls = {
         analyses = { unusedparams = true },
         staticcheck = true,
+        memoryMode = "DegradeClosed",
       },
     },
   })
