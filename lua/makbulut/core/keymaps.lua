@@ -7,7 +7,7 @@ keymap.set("i", "jk", "<ESC>")
 
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
-keymap.set("n", "x", '"_x"')
+keymap.set("n", "x", '"_x')
 
 keymap.set("n", "<leader>+", "<C-a>")
 keymap.set("n", "<leader>-", "<C-x>")
@@ -40,6 +40,9 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
 -- 42 Header
 keymap.set("n", "<leader>hh", ":Stdheader<CR>")
+
+-- 42 norm formatter (c_formatter_42) - manuel tetikleme
+keymap.set("n", "<leader>nf", function() require("makbulut.plugins.formatter_c42").format() end, { desc = "Norm'a göre formatla" })
 
 -- Yol kopyalama kısayolları
 keymap.set("n", "<leader>pa", [[:let @+ = expand("%:p")<CR>:echo "Tam yol kopyalandı"<CR>]], { desc = "Tam yolu kopyala" })
