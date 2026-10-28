@@ -131,9 +131,13 @@ require("lazy").setup({
   },
 
   -- 42 header
+  -- ft eklendi: sadece cmd ile tembel yüklenirse setup() (ve auto_update
+  -- autocmd'i) ilk ":Stdheader" çağrısına kadar hiç kurulmuyor, yani taze
+  -- bir oturumda ilk kaydetmelerde header güncellenmiyordu.
   {
     "Diogo-ss/42-header.nvim",
     cmd = { "Stdheader" },
+    ft = { "c", "h" },
     config = function() require("makbulut.plugins.header") end,
   },
 
@@ -150,7 +154,7 @@ require("lazy").setup({
   -- formatter
   {
     "mhartington/formatter.nvim",
-    event = "BufWritePre",
+    event = { "BufReadPost", "BufNewFile" },
     config = function() require("makbulut.plugins.formatter") end,
   },
 
