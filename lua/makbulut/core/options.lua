@@ -11,6 +11,12 @@ opt.expandtab = true
 opt.autoindent = true
 
 -- line wrapping
+opt.wrap = true -- uzun satırları pencere genişliğine göre alt satırdan devam ettir
+opt.linebreak = true -- kelimeleri ortadan bölme, boşluktan kır
+opt.breakindent = true -- devam eden satırı orijinal girintiyle hizala
+opt.showbreak = "↪ " -- devam eden satırları belirt
+
+-- search
 opt.ignorecase = true
 opt.smartcase = true
 
@@ -38,7 +44,6 @@ opt.iskeyword:append("-")
 -- scroll & performance
 opt.scrolloff = 8
 opt.sidescrolloff = 8
-opt.wrap = false
 opt.updatetime = 250
 opt.timeoutlen = 500
 
