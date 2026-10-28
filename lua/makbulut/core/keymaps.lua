@@ -72,3 +72,7 @@ keymap.set("i", "<Esc><BS>", "<C-w>", { desc = "Bir kelime sil" })
 keymap.set("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], { desc = "Bu dizindeki oturumu yükle" })
 keymap.set("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], { desc = "Son oturumu yükle" })
 keymap.set("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], { desc = "Oturumu kaydetmeyi durdur" })
+
+-- wrap açıkken j/k görsel satırlarda hareket etsin (sayıyla kullanımda normal davranış korunur, örn. 5j)
+keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Down (wrapped lines)" })
+keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Up (wrapped lines)" })
